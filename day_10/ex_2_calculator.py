@@ -25,7 +25,6 @@ operations = {"+": add, "-": subtract, "*": multiply, "/": divide}
 
 
 def calculator():
-
     num1 = float(input("What's the first number?: "))
     for symbol in operations:
         print(symbol)
@@ -39,10 +38,10 @@ def calculator():
         print(f"{num1} {operation_symbol} {num2} = {answer}")
 
         if (
-            input(
-                f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: "
-            )
-            == "y"
+                input(
+                    f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: "
+                )
+                == "y"
         ):
             num1 = answer
         else:
