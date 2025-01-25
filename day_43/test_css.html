@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обучающий пример CSS</title>
+    <style>
+        /* Основные стили страницы */
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        nav {
+            margin: 10px 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            margin: 0 5px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #555;
+        }
+
+        /* Основной контент */
+
+        main {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #333;
+            text-shadow: 1px 1px #ddd;
+        }
+
+        /* Стили для блоков */
+
+        .box {
+            background: #e0e0e0;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .box:hover {
+            background: #d0d0d0;
+            transition: background 0.3s;
+        }
+
+        /* Стили таблицы */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Анимация */
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Всплывающее сообщение */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .tooltip .tooltip-text {
+            visibility: hidden;
+            width: 120px;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%; /* Положение относительно родителя */
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Responsive дизайн */
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Обучающий пример CSS</h1>
+        <nav>
+            <a href="#section1">Раздел 1</a>
+            <a href="#section2">Раздел 2</a>
+            <a href="#section3">Раздел 3</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="section1" class="fade-in">
+            <h2>Раздел 1: Основные стили</h2>
+            <div class="box">Это простой блок с базовыми стилями.</div>
+            <div class="box tooltip">
+                Наведите на меня
+                <span class="tooltip-text">Это всплывающее сообщение!</span>
+            </div>
+        </section>
+
+        <section id="section2" class="fade-in">
+            <h2>Раздел 2: Стили таблицы</h2>
+            <table>
+                <tr>
+                    <th>Имя</th>
+                    <th>Возраст</th>
+                    <th>Город</th>
+                </tr>
+                <tr>
+                    <td>Иван</td>
+                    <td>25</td>
+                    <td>Москва</td>
+                </tr>
+                <tr>
+                    <td>Анна</td>
+                    <td>30</td>
+                    <td>Санкт-Петербург</td>
+                </tr>
+                <tr>
+                    <td>Сергей</td>
+                    <td>20</td>
+                    <td>Новосибирск</td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="section3" class="fade-in">
+            <h2>Раздел 3: Анимация</h2>
+            <div class="box">
+                <button id="animateBtn">Показать анимированный блок</button>
+            </div>
+            <div id="animatedBlock" class="box" style="display: none;">
+                Этот блок появляется с анимацией!
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Функция для анимации блока
+        document.getElementById("animateBtn").addEventListener("click", function() {
+            var block = document.getElementById("animatedBlock");
+            block.style.display = "block"; // Показываем блок
+            block.classList.add("fade-in"); // Добавляем класс анимации
+        });
+    </script>
+
+</body>
+</html>
